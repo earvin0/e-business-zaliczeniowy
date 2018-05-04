@@ -1,13 +1,20 @@
 package models
 
-import scala.concurrent.{ExecutionContext, Future}
+import javax.inject.{ Inject, Singleton }
+import play.api.db.slick.DatabaseConfigProvider
+import slick.jdbc.JdbcProfile
+
+import scala.concurrent.{ Future, ExecutionContext }
 
 @Singleton
 class UserRepository @Inject() (dbConfigProvider: DatabaseConfigProvider)(implicit ec: ExecutionContext) {
-  private val dbConfig = dbConfigProvider.get[JdbcProfile]
+  val dbConfig = dbConfigProvider.get[JdbcProfile]
+
+  import dbConfig._
+  import profile.api._
 
 
-  private class UserTable(tag: Tag) extends Table[User](tag,"user"){
+  class UserTable(tag: Tag) extends Table[User](tag,"user"){
 
     def id = column[Long]("id", O.PrimaryKey,O.AutoInc)
 
@@ -18,16 +25,16 @@ class UserRepository @Inject() (dbConfigProvider: DatabaseConfigProvider)(implic
 
   }
 
-  private val users = TableQuery[UserTable]
+  val users = TableQuery[UserTable]
 
   def create(name: String): Future[User] = db.run {
     ( users.map( p => (p.name))
-      returning orders.map(_.id)
-      into { case ((name),id) => Order(id,name)}
-      ) += User(id,name)
+      returning users.map(_.id)
+      into { case ((name),id) => User(id,name)}
+      ) += (name)
   }
 
   def list(): Future[Seq[User]] = db.run{
-    user.result
+    users.result
   }
 }

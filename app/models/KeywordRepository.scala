@@ -1,11 +1,18 @@
 package models
 
-import scala.concurrent.{ExecutionContext, Future}
+import javax.inject.{ Inject, Singleton }
+import play.api.db.slick.DatabaseConfigProvider
+import slick.jdbc.JdbcProfile
+
+import scala.concurrent.{ Future, ExecutionContext }
 
 
 @Singleton
 class KeywordRepository @Inject()(dbConfigProvider: DatabaseConfigProvider)(implicit ec: ExecutionContext) {
   private val dbConfig = dbConfigProvider.get[JdbcProfile]
+
+  import dbConfig._
+  import profile.api._
 
   private class KeywordTable(tag: Tag) extends Table[Keyword](tag,"keyword"){
 
@@ -18,9 +25,9 @@ class KeywordRepository @Inject()(dbConfigProvider: DatabaseConfigProvider)(impl
 
   }
 
-  private val keyword = TableQuery[Keyword]
+  private val keyword = TableQuery[KeywordTable]
 
-  def create(word: String, occurrences: Int): Future[Keyword] = db.run {
+  def create(word: String, occurrences: Int): Future[Int] = db.run {
     keyword += Keyword(word, occurrences)
   }
 

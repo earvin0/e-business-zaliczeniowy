@@ -1,10 +1,17 @@
 package models
 
-import scala.concurrent.{ExecutionContext, Future}
+import javax.inject.{ Inject, Singleton }
+import play.api.db.slick.DatabaseConfigProvider
+import slick.jdbc.JdbcProfile
+
+import scala.concurrent.{ Future, ExecutionContext }
 
 @Singleton
 class ReviewRepository @Inject() (dbConfigProvider: DatabaseConfigProvider, productRepository: ProductRepository, userRepository: UserRepository)(implicit ec: ExecutionContext) {
   private val dbConfig = dbConfigProvider.get[JdbcProfile]
+
+  import dbConfig._
+  import profile.api._
 
   private class ReviewTable(tag: Tag) extends Table[Review](tag,"review"){
 
@@ -25,15 +32,18 @@ class ReviewRepository @Inject() (dbConfigProvider: DatabaseConfigProvider, prod
 
   }
 
+  import userRepository.UserTable
+  import productRepository.ProductTable
+
   private val users = TableQuery[UserTable]
   private val products = TableQuery[ProductTable]
-  private val review = TableQuery[ReviewTable]
+  private val reviews = TableQuery[ReviewTable]
 
-  def create(userID: Long, productID: Long, grade: Short, review: String): Future[Review] = db.run {
-    review += Review(userID,productID,grade,review)
+  def create(userID: Long, productID: Long, grade: Short, review: String): Future[Int] = db.run {
+    reviews += Review(userID,productID,grade,review)
   }
 
   def list(): Future[Seq[Review]] = db.run{
-    review.result
+    reviews.result
   }
 }

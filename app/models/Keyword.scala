@@ -1,5 +1,6 @@
-
 package models
+
+import play.api.libs.json._
 
 case class Keyword(word: String, occurrences : Int )
 
