@@ -17,7 +17,7 @@ class OrderedProductRepository @Inject() (dbConfigProvider: DatabaseConfigProvid
 
     def orderID = column[Long]("orderID")
 
-    def uorderID_fk = foreignKey("orderID_fk",orderID,orders)(_.id)
+    def orderID_fk = foreignKey("orderID_fk",orderID,orders)(_.id)
 
     def productID = column[Long]("productID")
 
