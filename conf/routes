@@ -6,6 +6,11 @@
 GET     /                           controllers.ProductController.index
 POST    /addproduct                 controllers.ProductController.addProduct
 GET     /products                   controllers.ProductController.getProducts
+POST    /users/adduser              controllers.UserController.addUser
+GET     /users                      controllers.UserController.index
+POST    /reviews/addreview          controllers.ReviewController.addReview
+GET     /reviews                    controllers.ReviewController.index
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

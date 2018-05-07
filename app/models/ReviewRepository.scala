@@ -23,7 +23,7 @@ class ReviewRepository @Inject() (dbConfigProvider: DatabaseConfigProvider, prod
 
     def productID_fk = foreignKey("productID_fk",productID,products)(_.id)
 
-    def grade = column[Short]("grade")
+    def grade = column[Int]("grade")
 
     def review = column[String]("review")
 
@@ -39,7 +39,7 @@ class ReviewRepository @Inject() (dbConfigProvider: DatabaseConfigProvider, prod
   private val products = TableQuery[ProductTable]
   private val reviews = TableQuery[ReviewTable]
 
-  def create(userID: Long, productID: Long, grade: Short, review: String): Future[Int] = db.run {
+  def create(userID: Long, productID: Long, grade: Int, review: String): Future[Int] = db.run {
     reviews += Review(userID,productID,grade,review)
   }
 
