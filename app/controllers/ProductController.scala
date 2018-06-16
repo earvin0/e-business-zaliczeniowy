@@ -53,6 +53,12 @@ class ProductController @Inject()(productsRepo: ProductRepository, categoryRepo:
   }
 */
 
+  val searchForm: Form[CreateSearchForm] = Form {
+  mapping(
+    "keyword" -> nonEmptyText
+  )(CreateSearchForm.apply)(CreateSearchForm.unapply)
+}
+
   def addProduct = Action.async { implicit request =>
     // Bind the form first, then fold the result, passing a function to handle errors, and a function to handle succes.
     var a:Seq[Category] = Seq[Category]()
@@ -89,6 +95,15 @@ class ProductController @Inject()(productsRepo: ProductRepository, categoryRepo:
       Ok(Json.toJson(products))
     }
   }
+
+  def getByKeyword() = Action.async { implicit request =>
+
+    val keywordForm = searchForm.bindFromRequest.get
+    productsRepo.listByKeyword(keywordForm.keyword).map { product =>
+      Ok(Json.toJson(product))
+    }
+  }
+
 }
 
 /**
@@ -99,3 +114,4 @@ class ProductController @Inject()(productsRepo: ProductRepository, categoryRepo:
  * that is generated once it's created.
  */
 case class CreateProductForm(name: String, description: String, category: Int)
+case class CreateSearchForm(keyword: String)

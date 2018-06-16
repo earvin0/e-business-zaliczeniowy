@@ -1,14 +1,5 @@
 # --- !Ups
 
-drop table "product" if exists;
-drop table "category" if exists;
-drop table "keyword" if exists;
-drop table "user" if exists;
-drop table "order" if exists;
-drop table "cart" if exists;
-drop table "orderedProduct" if exists;
-drop table "review" if exists;
-
 
 create table "category" (
   "id" integer not null primary key autoincrement,
@@ -73,3 +64,11 @@ CREATE TABLE review
 
 # --- !Downs
 
+drop table "product" if exists;
+drop table "category" if exists;
+drop table "keyword" if exists;
+drop table "user" if exists;
+drop table "order" if exists;
+drop table "cart" if exists;
+drop table "orderedProduct" if exists;
+drop table "review" if exists;
