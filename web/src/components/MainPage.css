@@ -3,3 +3,9 @@
     width: 100%;
     border-bottom: 1px solid black;
 }
+
+#searchBarDiv {
+    align: center;
+    text-align: center;
+}
+

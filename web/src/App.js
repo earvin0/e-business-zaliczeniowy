@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import MainPage from './components/MainPage'
-import SearchBar from './components/SearchBar'
 
 class App extends Component {
   render() {
@@ -10,9 +9,6 @@ class App extends Component {
           <div id={"topbar"}>
               <img id="logo" src="logo.png" alt={"Logo"}/>
               <div id={"login_div"}>Zalogowano jako OskarJ</div>
-          </div>
-          <div>
-            <SearchBar/>
           </div>
           <MainPage/>
       </div>

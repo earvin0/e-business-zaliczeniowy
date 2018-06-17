@@ -1,44 +1,73 @@
 import React from 'react';
-import { Button, Card, CardBody, CardImage, CardTitle, CardText } from 'mdbreact';
+import { Button, Card, CardBody, CardTitle, CardText } from 'mdbreact';
 
 
 class ProductsList extends React.Component{
     constructor(props){
         super(props);
-        this.state = { products: [
-                {
-                    "id": 1,
-                    "name": "sample"
+        this.state = { products: [], query: "" }
+        this.getProducts = this.getProducts.bind(this);
+
+    }
+
+    getAllProducts() {
+        console.log(this.state.products);
+        fetch('/api/getProducts').then( (response) =>  {return response.json()} ).then(
+            json =>
+                this.setState({products: json}, () => this.render())
+        );
+
+    }
+
+    getProducts(){
+        fetch('/api/getByKeyword', {
+                method: 'post',
+                headers: {
+                    'Accept':       'application/json',
+                    'Content-Type': 'application/json'
                 },
-                {
-                    "id": 2,
-                    "name": "asd"
-                },
-                {
-                    "id": 3,
-                    "name": "dsa"
-                }
-            ]}
+                body: JSON.stringify({ 'keyword': this.query.value})
+            }).then( (response) =>  {return response.json()} ).then(
+                json =>
+                    this.setState({products: json}, () => this.render())
+        );
+
     }
 
 
+    componentDidMount() {
+        this.getAllProducts();
+    }
+
     render () {
+
+        console.log(this.state.products);
+
+        var cards = this.state.products.map(product => {
+            return (
+                <Card key={product.name}>
+                    <CardBody>
+                        <CardTitle>{product.name}</CardTitle>
+                        <CardText>{product.category}</CardText>
+                        <Button href="#">Button</Button>
+                    </CardBody>
+                </Card>
+            );
+        });
         return (
             <div>
-                <Card>
-                    <CardBody>
-                        <CardTitle>Card title</CardTitle>
-                        <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                        <Button href="#">Button</Button>
-                    </CardBody>
-                </Card>
-                <Card>
-                    <CardBody>
-                        <CardTitle>Card title</CardTitle>
-                        <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                        <Button href="#">Button</Button>
-                    </CardBody>
-                </Card>
+                <div className={"input-group md-form form-sm form-1 pl-0"}>
+                    <div className="form-group">
+                        <input type={"text"} defaultValue={""} className={"form-control my-0 py-1"} placeholder={"search"} name={"searchQuery"} ref={query => this.query = query}/>
+
+                    </div>
+                    <div className="form-group">
+                        <Button className={"btn btn-default"} onClick={this.getProducts}>Search</Button>
+                    </div>
+                </div>
+
+                {cards}
+
             </div>
         );
     }

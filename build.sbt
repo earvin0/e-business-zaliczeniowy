@@ -19,3 +19,29 @@ libraryDependencies += "org.xerial"        %  "sqlite-jdbc" % "3.21.0"
 libraryDependencies += specs2 % Test
 
 resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
+
+//oauth
+
+resolvers += Resolver.jcenterRepo
+
+resolvers += "Sonatype snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
+libraryDependencies += "org.xerial" % "sqlite-jdbc" % "3.21.0"
+libraryDependencies += "org.webjars" %% "webjars-play" % "2.6.1"
+libraryDependencies += "org.webjars" % "bootstrap" % "3.3.7-1" exclude("org.webjars", "jquery")
+libraryDependencies += "org.webjars" % "jquery" % "3.2.1"
+libraryDependencies += "com.mohiva" %% "play-silhouette" % "5.0.0"
+libraryDependencies += "com.mohiva" %% "play-silhouette-password-bcrypt" % "5.0.0"
+libraryDependencies += "com.mohiva" %% "play-silhouette-persistence" % "5.0.0"
+libraryDependencies += "com.mohiva" %% "play-silhouette-crypto-jca" % "5.0.0"
+libraryDependencies += "com.typesafe.play" %% "play-mailer" % "6.0.1"
+libraryDependencies += "com.typesafe.play" %% "play-mailer-guice" % "6.0.1"
+libraryDependencies += "net.codingwell" %% "scala-guice" % "4.1.0"
+libraryDependencies += "com.iheart" %% "ficus" % "1.4.1"
+libraryDependencies += "com.enragedginger" %% "akka-quartz-scheduler" % "1.6.1-akka-2.5.x"
+libraryDependencies += "com.adrianhurt" %% "play-bootstrap" % "1.2-P26-B3"
+libraryDependencies += ehcache
+
+routesGenerator := InjectedRoutesGenerator
+routesImport += "utils.route.Binders._"
+
+TwirlKeys.templateImports := Seq()

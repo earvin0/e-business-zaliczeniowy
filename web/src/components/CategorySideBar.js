@@ -21,12 +21,14 @@ class CategorySideBar extends React.Component{
     }
 
     componentDidMount() {
-        fetch('http://localhost:9090/api/getCategories').then(function(response){
+        var that = this;
+        fetch('/api/getCategories').then(function(response){
             if (response.status >= 400) {
                 throw new Error("Bad response from server");
             }
-            var data = response.json();
-            this.setState({categories: data});
+            return response.json();
+        }).then(function (data) {
+            that.setState({categories: data});
         }).catch(err => {
             throw new Error(err)
         });
@@ -35,15 +37,18 @@ class CategorySideBar extends React.Component{
 
     render () {
         return (
-            <SideNav highlightBgcolor={"black"}>
-                {this.state.categories.map( (category) => {
-                    return (
-                        <Nav><NavText>{category.name}</NavText></Nav>
-                    )
-                    }
+            <div>
+                <h3>Kategorie</h3>
+                <SideNav highlightBgcolor={"black"}>
+                    {this.state.categories.map( (category) => {
+                        return (
+                            <Nav key={category.name}><NavText>{category.name}</NavText></Nav>
+                        )
+                        }
 
-                )}
-            </SideNav>
+                    )}
+                </SideNav>
+            </div>
         );
     }
 }

@@ -99,6 +99,7 @@ class ProductController @Inject()(productsRepo: ProductRepository, categoryRepo:
   def getByKeyword() = Action.async { implicit request =>
 
     val keywordForm = searchForm.bindFromRequest.get
+    println(keywordForm.keyword)
     productsRepo.listByKeyword(keywordForm.keyword).map { product =>
       Ok(Json.toJson(product))
     }

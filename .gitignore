@@ -151,6 +151,7 @@ project/target/streams/
 target/scala-2.12/
 target/streams/
 target/web/
+web/node_modules/*
 web/node_modules/.cache/
 web/node_modules/@babel/
 web/node_modules/accepts/
