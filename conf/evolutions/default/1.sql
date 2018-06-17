@@ -10,14 +10,14 @@ create table "product" (
   "id" integer not null primary key autoincrement,
   "name" varchar not null,
   "description" text not null,
-  category int not null,
+  category integer not null,
   foreign key(category) references category(id)
 );
 
 CREATE TABLE keyword
 (
     word varchar PRIMARY KEY NOT NULL,
-    occurrences int DEFAULT 0
+    occurrences integer DEFAULT 0
 );
 
 create table user

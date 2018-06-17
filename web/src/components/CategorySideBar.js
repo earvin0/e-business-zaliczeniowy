@@ -20,6 +20,18 @@ class CategorySideBar extends React.Component{
             ]}
     }
 
+    componentDidMount() {
+        fetch('http://localhost:9090/api/getCategories').then(function(response){
+            if (response.status >= 400) {
+                throw new Error("Bad response from server");
+            }
+            var data = response.json();
+            this.setState({categories: data});
+        }).catch(err => {
+            throw new Error(err)
+        });
+    }
+
 
     render () {
         return (

@@ -12,7 +12,8 @@ GET     /reviews                    controllers.ReviewController.index
 
 
 POST    /api/getProducts            controllers.ProductController.getProducts
-POST    /api/getCategories          controllers.CategoryController.getCategories
+GET     /api/getCategories           controllers.CategoryController.getCategories
+POST    /api/getCategories           controllers.CategoryController.getCategories
 POST    /api/getCart                controllers.CartController.getCart
 POST    /api/getByKeyword           controllers.ProductController.getByKeyword
 

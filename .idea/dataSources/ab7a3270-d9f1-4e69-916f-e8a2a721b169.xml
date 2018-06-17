@@ -179,14 +179,13 @@
     </column>
     <column id="49" parent="12" name="category">
       <Position>4</Position>
-      <DataType>int|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>integer|0s</DataType>
     </column>
     <key id="50" parent="12">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="51" parent="12">
+    <foreign-key id="51" parent="12" name="product_category_id_fk">
       <ColNames>category</ColNames>
       <RefTableName>category</RefTableName>
       <RefColNames>id</RefColNames>

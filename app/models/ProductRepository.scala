@@ -87,13 +87,14 @@ class ProductRepository @Inject() (dbConfigProvider: DatabaseConfigProvider, val
     product.result
   }
 
-  def listByKeyword(keyword: String) : Future[Seq[Product]] = db.run {
-     val query = (for {
-      prod <- product if prod.name like s"%${keyword}%"
-      category <- cat if prod.category === category.id
-    } yield (prod.name, category.name)).result
+  def listByKeyword(keyword: String) : Future[Seq[(String,String)]] = db.run {
+
+    (for {
+        (p,c) <- product join cat on ( _.category === _.id )
+      } yield (p.name,c.name)).result
 
   }
+
 
 
    /* product.filter(_.name like s"%${keyword}%").result */
