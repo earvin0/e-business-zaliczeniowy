@@ -6,22 +6,20 @@ import slick.jdbc.JdbcProfile
 
 import scala.concurrent.{ Future, ExecutionContext }
 
-
 @Singleton
-class KeywordRepository @Inject()(dbConfigProvider: DatabaseConfigProvider)(implicit ec: ExecutionContext) {
+class KeywordRepository @Inject() (dbConfigProvider: DatabaseConfigProvider)(implicit ec: ExecutionContext) {
   private val dbConfig = dbConfigProvider.get[JdbcProfile]
 
   import dbConfig._
   import profile.api._
 
-  private class KeywordTable(tag: Tag) extends Table[Keyword](tag,"keyword"){
+  private class KeywordTable(tag: Tag) extends Table[Keyword](tag, "keyword") {
 
-    def word = column[String]("word",O.PrimaryKey)
+    def word = column[String]("word", O.PrimaryKey)
 
     def occurrences = column[Int]("occurrences")
 
     def * = (word, occurrences) <> ((Keyword.apply _).tupled, Keyword.unapply)
-
 
   }
 
@@ -31,7 +29,7 @@ class KeywordRepository @Inject()(dbConfigProvider: DatabaseConfigProvider)(impl
     keyword += Keyword(word, occurrences)
   }
 
-  def list(): Future[Seq[Keyword]] = db.run{
+  def list(): Future[Seq[Keyword]] = db.run {
     keyword.result
   }
 }

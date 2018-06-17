@@ -16,20 +16,19 @@ class CartRepository @Inject() (dbConfigProvider: DatabaseConfigProvider, produc
   import userRepository.UserTable
   import productRepository.ProductTable
 
-  private class CartTable(tag: Tag) extends Table[Cart](tag,"cart"){
+  private class CartTable(tag: Tag) extends Table[Cart](tag, "cart") {
 
     def userID = column[Long]("userID")
 
-    def userID_fk = foreignKey("userID_fk",userID,users)(_.id)
+    def userID_fk = foreignKey("userID_fk", userID, users)(_.id)
 
     def productID = column[Long]("productID")
 
-    def productID_fk = foreignKey("productID_fk",productID,products)(_.id)
+    def productID_fk = foreignKey("productID_fk", productID, products)(_.id)
 
     def quantity = column[Int]("quantity")
 
     def * = (userID, productID, quantity) <> ((Cart.apply _).tupled, Cart.unapply)
-
 
   }
 
@@ -41,11 +40,10 @@ class CartRepository @Inject() (dbConfigProvider: DatabaseConfigProvider, produc
   private val cart = TableQuery[CartTable]
 
   def create(userID: Long, productID: Long, quantity: Int): Future[Int] = db.run {
-    cart += Cart(userID,productID,quantity)
+    cart += Cart(userID, productID, quantity)
   }
 
-
-  def list(): Future[Seq[Cart]] = db.run{
+  def list(): Future[Seq[Cart]] = db.run {
     cart.result
   }
 }

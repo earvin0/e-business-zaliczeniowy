@@ -13,20 +13,19 @@ class OrderedProductRepository @Inject() (dbConfigProvider: DatabaseConfigProvid
   import dbConfig._
   import profile.api._
 
-  private class OrderedProductTable(tag: Tag) extends Table[OrderedProduct](tag,"orderedProduct"){
+  private class OrderedProductTable(tag: Tag) extends Table[OrderedProduct](tag, "orderedProduct") {
 
     def orderID = column[Long]("orderID")
 
-    def orderID_fk = foreignKey("orderID_fk",orderID,orders)(_.id)
+    def orderID_fk = foreignKey("orderID_fk", orderID, orders)(_.id)
 
     def productID = column[Long]("productID")
 
-    def productID_fk = foreignKey("productID_fk",productID,products)(_.id)
+    def productID_fk = foreignKey("productID_fk", productID, products)(_.id)
 
     def quantity = column[Int]("quantity")
 
     def * = (orderID, productID, quantity) <> ((OrderedProduct.apply _).tupled, OrderedProduct.unapply)
-
 
   }
 
@@ -37,12 +36,11 @@ class OrderedProductRepository @Inject() (dbConfigProvider: DatabaseConfigProvid
   private val products = TableQuery[ProductTable]
   private val orderProducts = TableQuery[OrderedProductTable]
 
-
   def create(orderID: Long, productID: Long, quantity: Int): Future[Int] = db.run {
-    orderProducts += OrderedProduct(orderID,productID,quantity)
+    orderProducts += OrderedProduct(orderID, productID, quantity)
   }
 
-  def list(): Future[Seq[OrderedProduct]] = db.run{
+  def list(): Future[Seq[OrderedProduct]] = db.run {
     orderProducts.result
   }
 }

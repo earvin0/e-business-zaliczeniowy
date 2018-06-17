@@ -13,22 +13,21 @@ class ReviewRepository @Inject() (dbConfigProvider: DatabaseConfigProvider, prod
   import dbConfig._
   import profile.api._
 
-  private class ReviewTable(tag: Tag) extends Table[Review](tag,"review"){
+  private class ReviewTable(tag: Tag) extends Table[Review](tag, "review") {
 
     def userID = column[Long]("userID")
 
-    def userID_fk = foreignKey("userID_fk",userID,users)(_.id)
+    def userID_fk = foreignKey("userID_fk", userID, users)(_.id)
 
     def productID = column[Long]("productID")
 
-    def productID_fk = foreignKey("productID_fk",productID,products)(_.id)
+    def productID_fk = foreignKey("productID_fk", productID, products)(_.id)
 
     def grade = column[Int]("grade")
 
     def review = column[String]("review")
 
-    def * = (userID, productID, grade,review) <> ((Review.apply _).tupled, Review.unapply)
-
+    def * = (userID, productID, grade, review) <> ((Review.apply _).tupled, Review.unapply)
 
   }
 
@@ -40,10 +39,10 @@ class ReviewRepository @Inject() (dbConfigProvider: DatabaseConfigProvider, prod
   private val reviews = TableQuery[ReviewTable]
 
   def create(userID: Long, productID: Long, grade: Int, review: String): Future[Int] = db.run {
-    reviews += Review(userID,productID,grade,review)
+    reviews += Review(userID, productID, grade, review)
   }
 
-  def list(): Future[Seq[Review]] = db.run{
+  def list(): Future[Seq[Review]] = db.run {
     reviews.result
   }
 }

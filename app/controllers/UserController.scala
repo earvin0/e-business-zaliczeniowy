@@ -9,20 +9,19 @@ import play.api.i18n._
 import play.api.libs.json.Json
 import play.api.mvc._
 
-import scala.concurrent.{ExecutionContext, Future}
-import scala.util.{Failure, Success}
+import scala.concurrent.{ ExecutionContext, Future }
+import scala.util.{ Failure, Success }
 
-class UserController @Inject()(userRepo: UserRepository, cc: MessagesControllerComponents)(implicit ec: ExecutionContext) extends MessagesAbstractController(cc){
+class UserController @Inject() (userRepo: UserRepository, cc: MessagesControllerComponents)(implicit ec: ExecutionContext) extends MessagesAbstractController(cc) {
 
   val userForm: Form[CreateUserForm] = Form {
     mapping(
-      "name" -> nonEmptyText
-    )(CreateUserForm.apply)(CreateUserForm.unapply)
+      "name" -> nonEmptyText)(CreateUserForm.apply)(CreateUserForm.unapply)
   }
 
-  def index = Action { implicit request =>
+  /*def index = Action { implicit request =>
     Ok(views.html.user(userForm))
-  }
+  }*/
 
   def addUser = Action { implicit request =>
 
@@ -31,11 +30,10 @@ class UserController @Inject()(userRepo: UserRepository, cc: MessagesControllerC
         Redirect(routes.UserController.index).flashing("success" -> "Failed to add user!")
       },
 
-    user => {
-      val userID = userRepo.create(user.name)
-      Redirect(routes.UserController.index).flashing("success" -> "User saved!")
-    }
-    )
+      user => {
+        val userID = userRepo.create(user.name)
+        Redirect(routes.UserController.index).flashing("success" -> "User saved!")
+      })
 
   }
 
@@ -46,7 +44,5 @@ class UserController @Inject()(userRepo: UserRepository, cc: MessagesControllerC
   }
 
 }
-
-
 
 case class CreateUserForm(name: String)

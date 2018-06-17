@@ -3,28 +3,39 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.ProductController.index
+GET     /                           controllers.ApplicationController.index
 POST    /addproduct                 controllers.ProductController.addProduct
 POST    /users/adduser              controllers.UserController.addUser
 GET     /users                      controllers.UserController.index
-POST    /reviews/addreview          controllers.ReviewController.addReview
-GET     /reviews                    controllers.ReviewController.index
+#POST    /reviews/addreview          controllers.ReviewController.addReview
+#GET     /reviews                    controllers.ReviewController.index
 
 
-GET    /api/getProducts            controllers.ProductController.getProducts
-GET     /api/getCategories           controllers.CategoryController.getCategories
-POST    /api/getCategories           controllers.CategoryController.getCategories
+GET     /api/getProducts            controllers.ProductController.getProducts
+GET     /api/getCategories          controllers.CategoryController.getCategories
+POST    /api/getCategories          controllers.CategoryController.getCategories
 POST    /api/getCart                controllers.CartController.getCart
 POST    /api/getByKeyword           controllers.ProductController.getByKeyword
 
 
 #oauth2
 
+GET         /                                controllers.ApplicationController.index
 GET         /signOut                         controllers.ApplicationController.signOut
-GET         /authenticate/:provider          controllers.SocialAuthController.authenticat
+GET         /authenticate/:provider          controllers.SocialAuthController.authenticate(provider)
+
+GET         /signUp                          controllers.SignUpController.view
+POST        /signUp                          controllers.SignUpController.submit
 
 GET         /signIn                          controllers.SignInController.view
 POST        /signIn                          controllers.SignInController.submit
+
+GET         /password/forgot                 controllers.ForgotPasswordController.view
+POST        /password/forgot                 controllers.ForgotPasswordController.submit
+GET         /password/reset/:token           controllers.ResetPasswordController.view(token: java.util.UUID)
+POST        /password/reset/:token           controllers.ResetPasswordController.submit(token: java.util.UUID)
+GET         /password/change                 controllers.ChangePasswordController.view
+POST        /password/change                 controllers.ChangePasswordController.submit
 
 GET         /account/email/:email            controllers.ActivateAccountController.send(email: String)
 GET         /account/activate/:token         controllers.ActivateAccountController.activate(token: java.util.UUID)

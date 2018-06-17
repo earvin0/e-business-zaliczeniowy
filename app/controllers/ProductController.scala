@@ -31,16 +31,13 @@ class ProductController @Inject()(productsRepo: ProductRepository, categoryRepo:
   /**
    * The index action.
    */
-  def index = Action.async { implicit request =>
-    val categories = categoryRepo.list()
-    categories.map(cat => Ok(views.html.index(productForm,cat)))
 
       /*
       .onComplete{
       case Success(categories) => Ok(views.html.index(productForm,categories))
       case Failure(t) => print("")
-    }*/
-  }
+    }
+  }*/
 
   /**
    * The add person action.
@@ -59,31 +56,12 @@ class ProductController @Inject()(productsRepo: ProductRepository, categoryRepo:
   )(CreateSearchForm.apply)(CreateSearchForm.unapply)
 }
 
-  def addProduct = Action.async { implicit request =>
-    // Bind the form first, then fold the result, passing a function to handle errors, and a function to handle succes.
-    var a:Seq[Category] = Seq[Category]()
-    val categories = categoryRepo.list().onComplete{
-      case Success(cat) => a= cat
-      case Failure(_) => print("fail")
-    }
+  def addProduct(): Action[AnyContent] = Action.async { implicit request =>
 
-    productForm.bindFromRequest.fold(
-      // The error function. We return the index page with the error form, which will render the errors.
-      // We also wrap the result in a successful future, since this action is synchronous, but we're required to return
-      // a future because the person creation function returns a future.
-      errorForm => {
-        Future.successful(
-            Ok(views.html.index(errorForm,a))
-          )
-      },
-      // There were no errors in the from, so create the person.
-      product => {
-        productsRepo.create(product.name, product.description, product.category).map { _ =>
-          // If successful, we simply redirect to the index page.
-          Redirect(routes.ProductController.index).flashing("success" -> "product.created")
-        }
-      }
-    )
+    val prod = productForm.bindFromRequest.get
+    productsRepo.create(prod.name, prod.description, prod.category).map( createdCategory =>
+      Ok(prod.name))
+
   }
 
 

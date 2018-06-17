@@ -38,7 +38,7 @@ class ProductRepository @Inject() (dbConfigProvider: DatabaseConfigProvider, val
 
     def category = column[Int]("category")
 
-    def category_fk = foreignKey("cat_fk",category, cat)(_.id)
+    def category_fk = foreignKey("cat_fk", category, cat)(_.id)
     /**
      * This is the tables default "projection".
      *
@@ -61,7 +61,6 @@ class ProductRepository @Inject() (dbConfigProvider: DatabaseConfigProvider, val
 
   private val cat = TableQuery[CategoryTable]
 
-
   /**
    * Create a person with the given name and age.
    *
@@ -70,14 +69,14 @@ class ProductRepository @Inject() (dbConfigProvider: DatabaseConfigProvider, val
    */
   def create(name: String, description: String, category: Int): Future[Product] = db.run {
     // We create a projection of just the name and age columns, since we're not inserting a value for the id column
-    (product.map(p => (p.name, p.description,p.category))
+    (product.map(p => (p.name, p.description, p.category))
       // Now define it to return the id, because we want to know what id was generated for the person
       returning product.map(_.id)
       // And we define a transformation for the returned value, which combines our original parameters with the
       // returned id
-      into {case ((name,description,category),id) => Product(id,name, description,category)}
+      into { case ((name, description, category), id) => Product(id, name, description, category) }
     // And finally, insert the person into the database
-    ) += (name, description,category)
+    ) += (name, description, category)
   }
 
   /**
@@ -87,20 +86,14 @@ class ProductRepository @Inject() (dbConfigProvider: DatabaseConfigProvider, val
     product.result
   }
 
-  def listByKeyword(keyword: String) : Future[Seq[(String,String)]] = db.run {
+  def listByKeyword(keyword: String): Future[Seq[(String, String)]] = db.run {
 
     (for {
-        (p,c) <- product join cat on ( _.category === _.id )
-      } yield (p.name,c.name)).result
+      (p, c) <- product join cat on (_.category === _.id)
+    } yield (p.name, c.name)).result
 
   }
 
-
-
-   /* product.filter(_.name like s"%${keyword}%").result */
-
-
-
-
+  /* product.filter(_.name like s"%${keyword}%").result */
 
 }

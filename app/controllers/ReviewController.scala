@@ -9,23 +9,22 @@ import play.api.i18n._
 import play.api.libs.json.Json
 import play.api.mvc._
 
-import scala.concurrent.{ExecutionContext, Future}
-import scala.util.{Failure, Success}
+import scala.concurrent.{ ExecutionContext, Future }
+import scala.util.{ Failure, Success }
 
-class ReviewController @Inject()(reviewRepo: ReviewRepository,userRepo: UserRepository,productRepo: ProductRepository, cc: MessagesControllerComponents)(implicit ec: ExecutionContext) extends MessagesAbstractController(cc){
+class ReviewController @Inject() (reviewRepo: ReviewRepository, userRepo: UserRepository, productRepo: ProductRepository, cc: MessagesControllerComponents)(implicit ec: ExecutionContext) extends MessagesAbstractController(cc) {
 
   val reviewForm: Form[CreateReviewForm] = Form {
     mapping(
       "userID" -> number,
-    "productID" -> number,
-    "grade" -> number,
-    "review" -> nonEmptyText
-    )(CreateReviewForm.apply)(CreateReviewForm.unapply)
+      "productID" -> number,
+      "grade" -> number,
+      "review" -> nonEmptyText)(CreateReviewForm.apply)(CreateReviewForm.unapply)
   }
 
-  def index = Action.async { implicit request =>
+  /*def index = Action.async { implicit request =>
     val products = productRepo.list()
-    products.map(prod => Ok(views.html.review(reviewForm,prod)))
+    products.map(prod => Ok(views.html.review(reviewForm, prod)))
 
   }
 
@@ -37,14 +36,12 @@ class ReviewController @Inject()(reviewRepo: ReviewRepository,userRepo: UserRepo
       },
 
       review => {
-        reviewRepo.create(review.userID,review.productID,review.grade,review.review)
+        reviewRepo.create(review.userID, review.productID, review.grade, review.review)
         Redirect(routes.ReviewController.index).flashing("success" -> "User saved!")
-      }
-    )
+      })
 
   }
+*/
 }
 
-
-
-case class CreateReviewForm(userID: Int,productID: Int,grade: Int,review: String)
+case class CreateReviewForm(userID: Int, productID: Int, grade: Int, review: String)
