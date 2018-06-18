@@ -23,7 +23,7 @@ class UserController @Inject() (userRepo: UserRepository, cc: MessagesController
     Ok(views.html.user(userForm))
   }*/
 
-  def addUser = Action { implicit request =>
+  /*def addUser = Action { implicit request =>
 
     userForm.bindFromRequest.fold(
       formWithErrors => {
@@ -35,7 +35,7 @@ class UserController @Inject() (userRepo: UserRepository, cc: MessagesController
         Redirect(routes.UserController.index).flashing("success" -> "User saved!")
       })
 
-  }
+  }*/
 
   def getUsers = Action.async { implicit request =>
     userRepo.list().map { users =>

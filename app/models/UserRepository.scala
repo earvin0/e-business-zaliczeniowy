@@ -6,9 +6,7 @@ import javax.inject.{ Inject, Singleton }
 import play.api.db.slick.DatabaseConfigProvider
 import slick.jdbc.JdbcProfile
 
-import scala.concurrent.{ ExecutionContext, Future }
-
-import com.mohiva.play.silhouette.api.{ Identity, LoginInfo }
+import scala.concurrent.{ Future, ExecutionContext }
 
 @Singleton
 class UserRepository @Inject() (dbConfigProvider: DatabaseConfigProvider)(implicit ec: ExecutionContext) {
@@ -17,30 +15,25 @@ class UserRepository @Inject() (dbConfigProvider: DatabaseConfigProvider)(implic
   import dbConfig._
   import profile.api._
 
-  class UserTable(tag: Tag) extends Table[User](tag, "user") {
+  class UserTable(tag: Tag) extends Table[User2](tag, "user") {
 
-    def userID = column[UUID]("id", O.PrimaryKey, O.AutoInc)
-    def loginInfo = column[LoginInfo]("loginInfo")
-    def firstName = column[String]("firstName")
-    def lastName = column[String]("lastName")
-    def fullName = column[String]("fullName")
-    def email = column[String]("email")
-    def avatarURL = column[String]("avatarURL")
-    def activated = column[Boolean]("activated")
+    def id = column[Long]("id", O.PrimaryKey, O.AutoInc)
 
-    def * = (userID, loginInfo, firstName, lastName, fullName, email, avatarURL, activated) <> ((User.apply _).tupled, User.unapply)
+    def name = column[String]("name")
+
+    def * = (id, name) <> ((User2.apply _).tupled, User2.unapply)
 
   }
 
   val users = TableQuery[UserTable]
 
-  def create(name: String): Future[User] = db.run {
+  def create(name: String): Future[User2] = db.run {
     (users.map(p => (p.name))
       returning users.map(_.id)
-      into { case ((name), id) => User(id, name) }) += (name)
+      into { case ((name), id) => User2(id, name) }) += (name)
   }
 
-  def list(): Future[Seq[User]] = db.run {
+  def list(): Future[Seq[User2]] = db.run {
     users.result
   }
 }

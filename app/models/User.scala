@@ -1,8 +1,8 @@
 package models
-import com.mohiva.play.silhouette.api.{ Identity, LoginInfo }
+
 import java.util.UUID
 
-import play.api.libs.json._
+import com.mohiva.play.silhouette.api.{ Identity, LoginInfo }
 
 /**
  * The user object.
@@ -16,7 +16,6 @@ import play.api.libs.json._
  * @param avatarURL Maybe the avatar URL of the authenticated provider.
  * @param activated Indicates that the user has activated its registration.
  */
-
 case class User(
   userID: UUID,
   loginInfo: LoginInfo,
@@ -40,10 +39,4 @@ case class User(
       case _ => None
     }
   }
-}
-
-/*case class User(id: Long, name: String)*/
-
-object User {
-  implicit val userFormat = Json.format[User]
 }
