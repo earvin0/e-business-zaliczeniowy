@@ -11,7 +11,6 @@ class ProductsList extends React.Component{
     }
 
     getAllProducts() {
-        console.log(this.state.products);
         fetch('/api/getProducts').then( (response) =>  {return response.json()} ).then(
             json =>
                 this.setState({products: json}, () => this.render())
@@ -41,7 +40,7 @@ class ProductsList extends React.Component{
 
     render () {
 
-        console.log(this.state.products);
+        //console.log(this.state.products);
 
         var cards = this.state.products.map(product => {
             return (

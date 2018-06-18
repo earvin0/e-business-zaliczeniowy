@@ -19,18 +19,26 @@ class UserRepository @Inject() (dbConfigProvider: DatabaseConfigProvider)(implic
 
     def id = column[Long]("id", O.PrimaryKey, O.AutoInc)
 
-    def name = column[String]("name")
+    def name = column[Option[String]]("name")
 
-    def * = (id, name) <> ((User2.apply _).tupled, User2.unapply)
+    def email = column[Option[String]]("email")
+
+    def token = column[String]("token")
+
+    def * = (id, name, email, token) <> ((User2.apply _).tupled, User2.unapply)
 
   }
 
   val users = TableQuery[UserTable]
 
-  def create(name: String): Future[User2] = db.run {
-    (users.map(p => (p.name))
+  def create(name: Option[String], email: Option[String], token: String): Future[User2] = db.run {
+    (users.map(p => (p.name, p.email, p.token))
       returning users.map(_.id)
-      into { case ((name), id) => User2(id, name) }) += (name)
+      into { case ((name, email, token), id) => User2(id, name, email, token) }) += (name, email, token)
+  }
+
+  def getUserByEmail(email: Option[String]): Future[Option[User2]] = db.run {
+    users.filter(_.email === email).result.headOption
   }
 
   def list(): Future[Seq[User2]] = db.run {

@@ -251,7 +251,15 @@
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
     </column>
-    <key id="67" parent="16">
+    <column id="67" parent="16" name="email">
+      <Position>3</Position>
+      <DataType>varchar|0s</DataType>
+    </column>
+    <column id="68" parent="16" name="token">
+      <Position>4</Position>
+      <DataType>varchar|0s</DataType>
+    </column>
+    <key id="69" parent="16">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>

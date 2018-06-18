@@ -22,10 +22,12 @@ CREATE TABLE keyword
 
 create table user
 (
-  id   integer
+  id    integer
     primary key
   autoincrement,
-  name varchar
+  name  varchar,
+  email varchar,
+  token varchar
 );
 
 CREATE TABLE "order"

@@ -16,6 +16,7 @@ GET     /api/getCategories          controllers.CategoryController.getCategories
 POST    /api/getCategories          controllers.CategoryController.getCategories
 POST    /api/getCart                controllers.CartController.getCart
 POST    /api/getByKeyword           controllers.ProductController.getByKeyword
+GET     /api/getCurrentUser         controllers.ApplicationController.getCurrentUser
 
 
 #oauth2
