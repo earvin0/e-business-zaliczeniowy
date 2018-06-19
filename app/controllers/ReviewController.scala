@@ -22,26 +22,33 @@ class ReviewController @Inject() (reviewRepo: ReviewRepository, userRepo: UserRe
       "review" -> nonEmptyText)(CreateReviewForm.apply)(CreateReviewForm.unapply)
   }
 
-  /*def index = Action.async { implicit request =>
-    val products = productRepo.list()
-    products.map(prod => Ok(views.html.review(reviewForm, prod)))
-
+  val getReviewForm: Form[GetReviewForm] = Form {
+    mapping(
+      "productID" -> number,
+      )(GetReviewForm.apply)(GetReviewForm.unapply)
   }
 
-  def addReview = Action { implicit request =>
+  def addReview(): Action[AnyContent] = Action.async { implicit request =>
 
-    reviewForm.bindFromRequest.fold(
-      formWithErrors => {
-        Redirect(routes.ReviewController.index).flashing("success" -> "Failed to add user!")
-      },
-
-      review => {
-        reviewRepo.create(review.userID, review.productID, review.grade, review.review)
-        Redirect(routes.ReviewController.index).flashing("success" -> "User saved!")
-      })
-
+    var form = reviewForm.bindFromRequest.get
+    reviewRepo.create(form.userID, form.productID, form.grade, form.review).map(review =>
+      Ok(form.review))
   }
-*/
+
+  def getProductReviews() = Action.async { implicit request =>
+
+    var form = getReviewForm.bindFromRequest.get
+    reviewRepo.listByProductID(form.productID).map(reviews =>
+      Ok(Json.toJson(reviews))
+    )
+  }
+
+  def getReviews = Action.async { implicit request =>
+    reviewRepo.list().map { review =>
+      Ok(Json.toJson(review))
+    }
+  }
 }
 
 case class CreateReviewForm(userID: Int, productID: Int, grade: Int, review: String)
+case class GetReviewForm( productID: Int)

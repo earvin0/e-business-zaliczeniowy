@@ -21,7 +21,6 @@ class App extends Component {
   render() {
     let login;
     var userID = localStorage.getItem("USER_ID");
-    console.log(userID)
     if ( userID && userID !== "undefined"){
         login = <div id={"login_div"}>Zalogowano jako {userID} | <a href='http://localhost:9000/signOut'>Wyloguj</a></div>
     } else {

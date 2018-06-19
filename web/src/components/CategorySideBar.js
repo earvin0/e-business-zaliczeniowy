@@ -34,15 +34,19 @@ class CategorySideBar extends React.Component{
         });
     }
 
+    sendCategory(id) {
+        this.props.handleCategorySelection(id);
+    }
+
 
     render () {
         return (
             <div>
                 <h3>Kategorie</h3>
-                <SideNav highlightBgcolor={"black"}>
+                <SideNav highlightBgcolor={"black"} onItemSelection={(id) => this.sendCategory(id)}>
                     {this.state.categories.map( (category) => {
                         return (
-                            <Nav key={category.name}><NavText>{category.name}</NavText></Nav>
+                            <Nav id={category.id} key={category.name}><NavText>{category.name}</NavText></Nav>
                         )
                         }
 

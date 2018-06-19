@@ -7,7 +7,7 @@ GET     /                           controllers.ApplicationController.index
 POST    /addproduct                 controllers.ProductController.addProduct
 #POST    /users/adduser              controllers.UserController.addUser
 #GET     /users                      controllers.UserController.index
-#POST    /reviews/addreview          controllers.ReviewController.addReview
+POST    /api/addReview              controllers.ReviewController.addReview
 #GET     /reviews                    controllers.ReviewController.index
 
 
@@ -17,6 +17,7 @@ POST    /api/getCategories          controllers.CategoryController.getCategories
 POST    /api/getCart                controllers.CartController.getCart
 POST    /api/getByKeyword           controllers.ProductController.getByKeyword
 GET     /api/getCurrentUser         controllers.ApplicationController.getCurrentUser
+GET     /api/getReviews             controllers.ReviewController.getReviews
 
 
 #oauth2

@@ -13,23 +13,14 @@ class MainPage extends React.Component{
 
     }
 
-    fetchProducts = () => {
-        fetch('http://localhost:9090/api/getByKeyword',{
-            method: 'post',
-            headers: {'Content-Type':'application/json'},
-            body: {
-                "keyword": this.state.searchQuery
-            }
-        }
-        ).then( json => json.json()).then(jsons => this.setState({products: jsons }))
+
+    handleCategorySelection(selection){
+        this.setState({category: selection});
+        this.foo.updateList(selection);
     }
 
-    getSearchQuery = (query) => {
-        this.setState({searchQuery : query});
-    }
-
-    chooseCategory(){
-
+    handleAddingToCart(item){
+        this.foo2.addToCart(item);
     }
 
     render () {
@@ -38,14 +29,14 @@ class MainPage extends React.Component{
                 <div className={"row"}>
                     <div className={"col-sm-2"}>
                         <p>{this.state.searchQuery}</p>
-                        <CategorySideBar/>
+                        <CategorySideBar handleCategorySelection={this.handleCategorySelection.bind(this)}/>
                     </div>
 
                     <div className={"col-sm-7"}>
-                        <ProductsList productsData={this.state.products}/>
+                        <ProductsList ref={foo => {this.foo = foo}} handleAddingToCart={this.handleAddingToCart.bind(this)} productsData={this.state.products}/>
                     </div>
                     <div className={"col-sm-3"}>
-                        <CartSideBar/>
+                        <CartSideBar ref={foo2 => {this.foo2 = foo2}} />
                     </div>
                 </div>
             </div>
