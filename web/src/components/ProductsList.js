@@ -26,7 +26,7 @@ class ProductsList extends React.Component{
         this.setState({ showAddReviewModal: true });
     }
 
-    handleCloseAddRevModal () {
+    handleCloseAddRevModal (productID) {
         console.log("Review: " + this.review.value);
         console.log("id: "+this.name)
         let data = {
@@ -35,7 +35,7 @@ class ProductsList extends React.Component{
                 review: this.review.value,
                 grade: 1,
                 userID: 1,
-                productID: 1
+                productID: productID
             }),
             headers: {
                 'Accept':       'application/json',
@@ -99,8 +99,9 @@ class ProductsList extends React.Component{
     }
 
     addToCart(id){
+        console.log(id)
 
-        var item = this.state.products.find(item => item.id === 1);
+        var item = this.state.products.find(item => item.id === id);
         this.props.handleAddingToCart(item);
     }
 
@@ -108,11 +109,15 @@ class ProductsList extends React.Component{
 
         //console.log(this.state.products);
 
+        console.log(this.state.products);
+        console.log(this.state.reviews);
+
         var cards = this.state.products.map(product => {
             if (product.category === this.state.category || this.state.category === ""){
 
                 var reviews = this.state.reviews.map(review => {
                     if (review.productID === product.id ) {
+                        console.log("review id: "+review.productID+" product.id: "+product.id);
                         return (<p className="h4 text-center mb-4" key={review.review}>{review.review}<br/></p>)
                     } else {
                         return null
@@ -125,7 +130,7 @@ class ProductsList extends React.Component{
                         <CardBody>
                             <CardTitle>{product.name}</CardTitle>
                             <CardText>{product.description}</CardText>
-                            <Button data={product.id} onClick={(data) => this.addToCart(data)}>Add to cart</Button>
+                            <Button data={product.id} onClick={() => this.addToCart(product.id)}>Add to cart</Button>
 
 
                             <Button onClick={this.handleOpenRevModal}>Show reviews</Button>
@@ -142,7 +147,8 @@ class ProductsList extends React.Component{
                                     </div>
 
                                         <div className="text-center mt-4">
-                                            <button className="btn btn-default"onClick={this.handleCloseRevModal}>Close</button>
+
+                                            <button className="btn btn-default" onClick={this.handleCloseRevModal}>Close</button>
                                         </div>
                                 </div>
                             </ReactModal>
@@ -166,7 +172,7 @@ class ProductsList extends React.Component{
                                             <textarea className="form-control" rows="5" id="review" name={"review"} ref={(review) => this.review = review}/>
                                         </div>
                                         <div className="text-center mt-4">
-                                            <button className="btn btn-default" type="submit"onClick={this.handleCloseAddRevModal}>Send and close</button>
+                                            <button className="btn btn-default" type="submit" onClick={() => this.handleCloseAddRevModal(product.id)}>Send and close</button>
                                         </div>
                                     </form>
                                 </div>

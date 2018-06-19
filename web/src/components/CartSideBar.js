@@ -18,10 +18,13 @@ class CartSideBar extends React.Component{
 
     }
 
-    removeFromCart = () => {this.setState(prevState => ({
-        items: []
-    }));
+    removeFromCart = (id) => {
+        var idToDelete = id;
+        var newItems = this.state.items.filter(item=>item.id !==idToDelete );
+        this.setState({ items: newItems });
     }
+
+
 
     handleOpenCheckOutModal  = () => {
         this.setState({ showCheckoutModal: true });
@@ -35,7 +38,7 @@ class CartSideBar extends React.Component{
     render () {
 
         var items = this.state.items.map(item => {
-            return (<ListGroupItem key={item.name}>{item.name}<Badge onClick={this.removeFromCart} color="primary" pill>X</Badge></ListGroupItem>)
+            return (<ListGroupItem key={item.name}>{item.name}<Badge onClick={() => this.removeFromCart(item.id)} color="primary" pill>X</Badge></ListGroupItem>)
         });
 
         if ( !this.state.items.length ) {

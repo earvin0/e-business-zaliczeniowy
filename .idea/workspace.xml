@@ -3,17 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="07331058-7a4a-464f-98f1-f5a5d33862e5" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/ReviewController.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/ReviewController.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/ProductRepository.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ProductRepository.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/ReviewRepository.scala" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ReviewRepository.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/routes" beforeDir="false" afterPath="$PROJECT_DIR$/conf/routes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ebiznes.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/ebiznes.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/components/CartSideBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/components/CartSideBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/components/CategorySideBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/components/CategorySideBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/src/components/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/components/MainPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/src/components/ProductsList.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/src/components/ProductsList.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -111,29 +102,62 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="category" pinned="false" current-in-tab="false">
-        <entry file="das://ab7a3270-d9f1-4e69-916f-e8a2a721b169/schema/main/table/category">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+      <file leaf-file-name="OrderedProduct.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/OrderedProduct.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="product" pinned="false" current-in-tab="false">
-        <entry file="das://ab7a3270-d9f1-4e69-916f-e8a2a721b169/schema/main/table/product">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+      <file leaf-file-name="Order.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/Order.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="review" pinned="false" current-in-tab="true">
-        <entry file="das://ab7a3270-d9f1-4e69-916f-e8a2a721b169/schema/main/table/review">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+      <file leaf-file-name="OrderedProductRepository.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/OrderedProductRepository.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderRepository.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/OrderRepository.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-87">
+              <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProductsList.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/src/components/ProductsList.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="174" column="94" selection-start-line="174" selection-start-column="94" selection-end-line="174" selection-end-column="94" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CartSideBar.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/src/components/CartSideBar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -550,9 +574,9 @@
         <option value="$PROJECT_DIR$/web/src/components/ReviewModal.js" />
         <option value="$PROJECT_DIR$/app/controllers/ReviewController.scala" />
         <option value="$PROJECT_DIR$/conf/routes" />
-        <option value="$PROJECT_DIR$/web/src/components/ProductsList.js" />
         <option value="$PROJECT_DIR$/web/src/components/MainPage.js" />
         <option value="$PROJECT_DIR$/web/src/components/CartSideBar.js" />
+        <option value="$PROJECT_DIR$/web/src/components/ProductsList.js" />
       </list>
     </option>
   </component>
@@ -613,8 +637,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -835,7 +859,8 @@
       <workItem from="1529265928612" duration="9567000" />
       <workItem from="1529276882975" duration="962000" />
       <workItem from="1529280246621" duration="699000" />
-      <workItem from="1529325940529" duration="38544000" />
+      <workItem from="1529325940529" duration="38583000" />
+      <workItem from="1529410436914" duration="3446000" />
     </task>
     <task id="LOCAL-00001" summary="added models and their repositories">
       <created>1525394816090</created>
@@ -900,11 +925,18 @@
       <option name="project" value="LOCAL" />
       <updated>1529346535916</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="tyle zdarzylem">
+      <created>1529373027098</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1529373027098</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149441000" />
+    <option name="totallyTimeSpent" value="152926000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -916,7 +948,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1425" y="-4" width="1855" height="1084" extended-state="6" />
+    <frame x="1424" y="-11" width="1857" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Key Promoter X" order="3" />
@@ -928,8 +960,7 @@
       <window_info anchor="right" id="CDI" order="3" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info anchor="bottom" id="SQL Generator" order="8" weight="0.32843652" />
-      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.15367606" />
+      <window_info active="true" anchor="right" id="Database" order="3" visible="true" weight="0.15367606" />
       <window_info id="Structure" order="1" sideWeight="0.50274724" side_tool="true" weight="0.2092084" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -939,20 +970,21 @@
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="7" sideWeight="0.4991708" weight="0.32948583" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5505976" visible="true" weight="0.30010495" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4994664" weight="0.32843652" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.5505976" visible="true" weight="0.30010495" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.498618" weight="0.32528856" />
-      <window_info anchor="bottom" id="Database Console" order="8" sideWeight="0.5997789" weight="0.40188876" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49725273" visible="true" weight="0.19845219" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49725273" visible="true" weight="0.20066334" />
       <window_info anchor="bottom" id="sbt-shell-toolwindow" order="7" sideWeight="0.4991708" weight="0.32843652" />
       <window_info anchor="bottom" id="SonarLint" order="8" sideWeight="0.49806523" weight="0.32738718" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32917318" />
       <window_info anchor="right" id="Gradle" order="3" weight="0.32946378" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Database Console" order="8" sideWeight="0.5997789" weight="0.40188876" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.249309" />
+      <window_info anchor="bottom" id="SQL Generator" order="8" weight="0.32843652" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32917318" />
       <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.49751243" weight="0.32843652" />
       <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49640685" weight="0.15912637" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -960,29 +992,28 @@
     </layout>
     <layout-to-restore>
       <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49640685" weight="0.15912637" />
-      <window_info id="Designer" order="2" />
-      <window_info anchor="bottom" id="Database Console" order="14" sideWeight="0.5997789" weight="0.40188876" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" sideWeight="0.4991708" weight="0.32948583" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="sbt" order="4" weight="0.32977587" />
       <window_info anchor="bottom" id="sbt-shell-toolwindow" order="8" sideWeight="0.4991708" weight="0.32917318" />
-      <window_info id="Image Layers" order="3" />
+      <window_info anchor="bottom" id="Database Console" order="14" sideWeight="0.5997789" weight="0.40188876" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5505976" weight="0.39559287" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.4494024" side_tool="true" weight="0.48829952" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.498618" weight="0.32605305" />
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
       <window_info anchor="right" id="CDI" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.4494024" side_tool="true" weight="0.48829952" />
+      <window_info id="Designer" order="2" />
       <window_info anchor="bottom" id="Messages" order="15" sideWeight="0.49751243" weight="0.32843652" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.498618" weight="0.32948583" />
       <window_info anchor="bottom" id="SonarLint" order="16" sideWeight="0.49806523" weight="0.32761312" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.249309" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32917318" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Key Promoter X" order="7" />
-      <window_info anchor="bottom" id="Java Enterprise" order="11" sideWeight="0.4991708" weight="0.32948583" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.4994664" weight="0.32843652" />
       <window_info anchor="right" id="Maven Projects" order="8" />
@@ -990,13 +1021,14 @@
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49725273" visible="true" weight="0.19845219" />
       <window_info anchor="right" id="Database" order="10" weight="0.15367606" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.498618" weight="0.32948583" />
+      <window_info id="Image Layers" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="11" />
       <window_info anchor="right" id="Theme Preview" order="12" />
       <window_info id="Structure" order="1" sideWeight="0.50274724" side_tool="true" weight="0.2092084" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32917318" />
       <window_info anchor="bottom" id="SQL Generator" order="17" weight="0.32843652" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1047,44 +1079,20 @@
     <MESSAGE value="import wont work" />
     <MESSAGE value="oauth2 copied in. aplication f***in runs" />
     <MESSAGE value="oauth2 working ffs" />
-    <option name="LAST_COMMIT_MESSAGE" value="oauth2 working ffs" />
+    <MESSAGE value="tyle zdarzylem" />
+    <option name="LAST_COMMIT_MESSAGE" value="tyle zdarzylem" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/web/src/components/MainPage.js</url>
-          <properties lambdaOrdinal="-1" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="1" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/OrderRepository.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="33" column="43" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/services/UserService.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/images/providers/google.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/UserController.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="27" column="34" selection-start-line="27" selection-start-column="34" selection-end-line="27" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/CartRepository.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -1158,13 +1166,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/activateAccount.scala.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#1#30#0#Scala" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home.scala.html">
       <provider selected="true" editor-type-id="text-editor" />
@@ -1187,9 +1189,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="16" column="42" lean-forward="true" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
-          <folding>
-            <element signature="e#1#26#0#Scala" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1267,9 +1266,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-79">
           <caret line="45" column="40" lean-forward="true" selection-start-line="45" selection-start-column="40" selection-end-line="45" selection-end-column="40" />
-          <folding>
-            <element signature="e#21#47#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1311,16 +1307,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/components/ReviewModal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/components/ReviewModal.js" />
     <entry file="file://$PROJECT_DIR$/app/models/ReviewRepository.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="507">
@@ -1366,27 +1353,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/components/ProductsList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="168" column="154" lean-forward="true" selection-start-line="168" selection-start-column="44" selection-end-line="168" selection-end-column="154" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/src/components/CartSideBar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="47" column="27" lean-forward="true" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="das://ab7a3270-d9f1-4e69-916f-e8a2a721b169/schema/main/table/cart">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://ab7a3270-d9f1-4e69-916f-e8a2a721b169/schema/main/table/user">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -1400,10 +1374,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://ab7a3270-d9f1-4e69-916f-e8a2a721b169/schema/main/table/user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file://$PROJECT_DIR$/app/models/OrderedProduct.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/OrderedProductRepository.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/OrderRepository.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-87">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/components/CartSideBar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1418,6 +1416,23 @@
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/Order.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/src/components/ProductsList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="174" column="94" selection-start-line="174" selection-start-column="94" selection-end-line="174" selection-end-column="94" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
